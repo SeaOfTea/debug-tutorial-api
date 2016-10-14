@@ -1,4 +1,4 @@
-### Debugging Node.js (and Docker Containers)
+# Debugging Node.js (and Docker Containers)
 
 I hate print statements, and you should too. 
 
@@ -166,3 +166,30 @@ nodeapp:
   command: [--debug, tutorial.js]
 ```
 
+We now need to add a new launch configuration to launch.json configurations array. 
+The remoteRoot should MATCH your Dockerfile ENTRYPOINT.
+
+```
+{
+    "name": "Attach To Docker",
+    "type": "node",
+    "request": "attach",
+    "port": 5858,
+    "address": "localhost",
+    "restart": false,
+    "sourceMaps": false,
+    "outFiles": [],
+    "localRoot": "${workspaceRoot}",
+    "remoteRoot": "/opt/nodeapp"
+}
+```
+Start your Docker container using docker-compose.
+
+```
+docker-compose build
+docker-compose up
+```
+
+Open the debug pane and change the configuration selector to "Attach to Docker" and click Play.
+
+You should now be remotely connected to the debug process inside your container.
