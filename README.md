@@ -8,7 +8,7 @@ Ugh, no thanks.
 
 Hopefully this blog will show that none of that is necessary.
 
-Let's start from the very beginning.
+Let's start from the very beginning. (Checkout the `finished-product` branch if you want to get the finished code)
 
 ---
 
