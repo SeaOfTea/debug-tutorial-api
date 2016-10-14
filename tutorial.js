@@ -3,7 +3,8 @@ let restify = require('restify');
 let server = restify.createServer({});
 
 server.get('/', (req, res, next) => {
-  res.send(200, 'Debug App');
+  let response = 'Debug App';
+  res.send(200, response);
   return next();
 });
 
